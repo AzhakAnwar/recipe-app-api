@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  app: # Name of the service 
+    build: 
+      context: . # Current directory (root)
+      args: 
+        - DEV=1
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app # map local directories with docker's 
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+
